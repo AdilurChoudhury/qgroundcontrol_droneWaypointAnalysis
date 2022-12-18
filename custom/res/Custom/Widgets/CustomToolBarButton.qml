@@ -35,16 +35,7 @@ Button {
             height:                 ScreenTools.defaultFontPixelHeight * 3
             width:                  1
         }
-        QGCColoredImage {
-            id:                     _icon
-            height:                 ScreenTools.defaultFontPixelHeight
-            width:                  height
-            sourceSize.height:      parent.height
-            fillMode:               Image.PreserveAspectFit
-            color:                  qgcPal.buttonText
-            source:                 button.icon.source
-            anchors.verticalCenter: parent.verticalCenter
-        }
+
         Label {
             id:                     _label
             visible:                text !== ""

@@ -41,6 +41,7 @@ Item {
     property string _messageTitle:          ""
     property string _messageText:           ""
     property real   _toolsMargin:           ScreenTools.defaultFontPixelWidth * 0.75
+    property real _customMargin:             ScreenTools.defaultFontPixelWidth * 2
 
     function secondsToHHMMSS(timeS) {
         var sec_num = parseInt(timeS, 10);
@@ -206,6 +207,24 @@ Item {
             }
         }
     }
+    Rectangle {
+        property bool show: CustomMainToolBar._showVelocityWidget
+        id:                     velocitySetter
+        anchors.bottomMargin:   ScreenTools.defaultFontPixelWidth * 2
+        anchors.rightMargin:    ScreenTools.defaultFontpixelWidth * 2
+        anchors.bottom:         parent.bottom
+        anchors.right:          parent.right
+        height:                 ScreenTools.defaultFontPixelHeight * 7
+        width:                  height
+        radius:                 height * 0.5
+        color:                  qgcPal.windowShade
+
+        CustomVelocityWidget {
+            size:               parent.height * 0.95
+            vehicle:            _activeVehicle
+            showVelocity:       velocitySetter.show ? true : false
+        }
+    }
 
     Rectangle {
         id:                     attitudeIndicator
@@ -225,4 +244,6 @@ Item {
             anchors.centerIn:   parent
         }
     }
+
+
 }

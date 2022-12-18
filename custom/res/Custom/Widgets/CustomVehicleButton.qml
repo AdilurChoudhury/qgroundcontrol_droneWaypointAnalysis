@@ -16,6 +16,7 @@ import QGroundControl.Controls      1.0
 import QGroundControl.Palette       1.0
 import QGroundControl.ScreenTools   1.0
 
+
 Button {
     id:                             button
     height:                         _infoCol.height * 1.25
